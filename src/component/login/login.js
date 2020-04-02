@@ -28,7 +28,7 @@ class Login extends Component {
 					<div className="login-content">
 						<form>
 							<img src={userImg} alt="" />
-							<h3 className="title">Welcome to Basics</h3>
+							<h3 className="title">Welcome to Basis</h3>
 							<div className="input-div one">
 								<div className="i">
 									<i className="fa fa-user" />
