@@ -6,36 +6,35 @@ import './login.css';
 
 class Login extends Component {
 	state = {
-		userName: 'hello@basics.com',
-		password: '123456'
+		userName: '',
+		password: ''
 	};
 
 	loginUser = () => {
 		if (this.state.userName && this.state.password) {
 			console.log('Valid User');
 		} else {
-			alert('Please check your username and password ');
+			console.log('Invalid Users');
 		}
 	};
 	render() {
 		return (
 			<div>
-				<img className="wave" src={leftImg} />
+				<img className="wave" src={leftImg} alt="" />
 				<div className="container">
 					<div className="img">
-						<img src={loginBgImg} />
+						<img src={loginBgImg} alt="" />
 					</div>
 					<div className="login-content">
 						<form>
-							<img src={userImg} />
+							<img src={userImg} alt="" />
 							<h3 className="title">Welcome to Basics</h3>
 							<div className="input-div one">
 								<div className="i">
 									<i className="fa fa-user" />
 								</div>
 								<div className="div">
-									<h5>Email/Mobile No</h5>
-									<input type="text" className="input" />
+									<input type="text" className="input" placeholder="Enter your email " />
 								</div>
 							</div>
 							<div className="input-div pass">
@@ -43,11 +42,10 @@ class Login extends Component {
 									<i className="fa fa-lock" />
 								</div>
 								<div className="div">
-									<h5>Password</h5>
-									<input type="password" className="input" />
+									<input type="password" className="input" placeholder="Enter your password" />
 								</div>
 							</div>
-							<a href="#">Forgot Password?</a>
+							<a href="!#">Forgot Password?</a>
 							<input type="submit" className="btn" Value="Login" onSubmit={this.loginUser()} />
 						</form>
 					</div>
