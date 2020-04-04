@@ -8,6 +8,9 @@ class Nav extends Component {
 		localStorage.removeItem('password');
 		this.props.history.push('/');
 	};
+	profilePopup = () => {
+		this.props.history.push('/profile');
+	};
 	render() {
 		return (
 			<nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -15,12 +18,12 @@ class Nav extends Component {
 					<span style={{ color: '#35CD9B', fontWeight: '600' }}>Basis</span>
 				</a>
 
-				<div className="collapse navbar-collapse " id="navbarNavDropdown">
-					<ul className="navbar-nav ml-md-auto ">
+				<div className="collapse navbar-collapse" id="navbarNavDropdown">
+					<ul className="navbar-nav ml-md-auto">
 						<li className="nav-item dropdown">
 							<a
-								className="nav-link dropdown-toggle "
-								href="/#"
+								className="nav-link dropdown-toggle"
+								href="!#"
 								id="navbarDropdownMenuLink"
 								role="button"
 								data-toggle="dropdown"
@@ -28,16 +31,12 @@ class Nav extends Component {
 								aria-expanded="false"
 							/>
 							<div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-								<a className="dropdown-item" href="!#">
-									<i class="fa fa-user" aria-hidden="true" />
-									<span style={{ paddingLeft: '1rem' }}>Profile</span>
-								</a>
-								<a className="dropdown-item" href="">
-									<i class="fa fa-sign-out" />
+								<p className="dropdown-item">
+									<i className="fa fa-sign-out" />
 									<span style={{ paddingLeft: '1rem' }} onClick={this.loggout}>
-										Logout{' '}
+										Logout
 									</span>
-								</a>
+								</p>
 							</div>
 						</li>
 					</ul>

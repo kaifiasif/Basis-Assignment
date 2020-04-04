@@ -70,7 +70,7 @@ class Login extends Component {
 									/>
 								</div>
 							</div>
-							<a href="!#">Forgot Password?</a>
+							<a href="#">Forgot Password?</a>
 							<input type="submit" className="btn" value="Login" />
 						</form>
 					</div>
