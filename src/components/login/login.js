@@ -18,7 +18,6 @@ class Login extends Component {
 		password: ''
 	};
 	handleChange = (e) => {
-		console.log('Target Value', e.target.value, e.target.name);
 		this.setState({ [e.target.name]: e.target.value });
 	};
 	loginUser = (e) => {
