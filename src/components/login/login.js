@@ -2,19 +2,31 @@ import React, { Component } from 'react';
 import loginBgImg from '../../img/assets/bg.svg';
 import userImg from '../../img/assets/avatar.svg';
 import leftImg from '../../img/assets/wave.png';
+import { withRouter } from 'react-router-dom';
+
 import './login.css';
+
+localStorage.setItem('username', 'test@basis.in');
+localStorage.setItem('password', 123456);
+
+let user = localStorage.getItem('username');
+let password = localStorage.getItem('password');
 
 class Login extends Component {
 	state = {
 		userName: '',
 		password: ''
 	};
-
-	loginUser = () => {
-		if (this.state.userName && this.state.password) {
-			console.log('Valid User');
+	handleChange = (e) => {
+		console.log('Target Value', e.target.value, e.target.name);
+		this.setState({ [e.target.name]: e.target.value });
+	};
+	loginUser = (e) => {
+		e.preventDefault();
+		if (this.state.userName === user && this.state.password === password) {
+			this.props.history.push('/dashboard');
 		} else {
-			console.log('Invalid Users');
+			alert('Please enter valid credentials');
 		}
 	};
 	render() {
@@ -26,7 +38,7 @@ class Login extends Component {
 						<img src={loginBgImg} alt="" />
 					</div>
 					<div className="login-content">
-						<form>
+						<form onSubmit={this.loginUser}>
 							<img src={userImg} alt="" />
 							<h3 className="title">Welcome to Basis</h3>
 							<div className="input-div one">
@@ -34,7 +46,14 @@ class Login extends Component {
 									<i className="fa fa-user" />
 								</div>
 								<div className="div">
-									<input type="text" className="input" placeholder="Enter your email " />
+									<input
+										type="text"
+										name="userName"
+										value={this.state.userName}
+										className="input"
+										placeholder="Enter your email "
+										onChange={this.handleChange}
+									/>
 								</div>
 							</div>
 							<div className="input-div pass">
@@ -42,11 +61,18 @@ class Login extends Component {
 									<i className="fa fa-lock" />
 								</div>
 								<div className="div">
-									<input type="password" className="input" placeholder="Enter your password" />
+									<input
+										type="password"
+										name="password"
+										value={this.state.password}
+										className="input"
+										placeholder="Enter your password"
+										onChange={this.handleChange}
+									/>
 								</div>
 							</div>
 							<a href="!#">Forgot Password?</a>
-							<input type="submit" className="btn" Value="Login" onSubmit={this.loginUser()} />
+							<input type="submit" className="btn" value="Login" />
 						</form>
 					</div>
 				</div>
@@ -55,4 +81,4 @@ class Login extends Component {
 	}
 }
 
-export default Login;
+export default withRouter(Login);
