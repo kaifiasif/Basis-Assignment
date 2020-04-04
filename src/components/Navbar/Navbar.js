@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
+
 class Nav extends Component {
 	state = {};
 	loggout = () => {
 		localStorage.removeItem('username');
 		localStorage.removeItem('password');
-		this.props.history.push('/login');
+		this.props.history.push('/');
 	};
 	render() {
 		return (
@@ -30,7 +32,7 @@ class Nav extends Component {
 									<i class="fa fa-user" aria-hidden="true" />
 									<span style={{ paddingLeft: '1rem' }}>Profile</span>
 								</a>
-								<a className="dropdown-item" href="!#">
+								<a className="dropdown-item" href="">
 									<i class="fa fa-sign-out" />
 									<span style={{ paddingLeft: '1rem' }} onClick={this.loggout}>
 										Logout{' '}
@@ -45,4 +47,4 @@ class Nav extends Component {
 	}
 }
 
-export default Nav;
+export default withRouter(Nav);
