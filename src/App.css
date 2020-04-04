@@ -15,6 +15,25 @@ body {
 	height: 40vmin;
 	pointer-events: none;
 }
+/* Navbar Css*/
+.dropdown-menu.show {
+	margin-left: -9rem;
+	margin-top: 1rem;
+}
+
+.dropdown-item.active,
+.dropdown-item:active {
+	color: #fff;
+	text-decoration: none;
+	background-color: #35cd9b;
+}
+.navbar-light .navbar-nav .nav-link {
+	color: #35cd9b;
+}
+.navbar-light .navbar-nav .nav-link:focus,
+.navbar-light .navbar-nav .nav-link:hover {
+	color: #35cd9b;
+}
 
 @media (prefers-reduced-motion: no-preference) {
 	.App-logo {

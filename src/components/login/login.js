@@ -24,7 +24,7 @@ class Login extends Component {
 	loginUser = (e) => {
 		e.preventDefault();
 		if (this.state.userName === user && this.state.password === password) {
-			// this.props.history.push('/dashboard');
+			this.props.history.push('/dashboard');
 		} else {
 			alert('Please enter valid credentials');
 		}
